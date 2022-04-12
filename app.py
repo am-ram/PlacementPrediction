@@ -11,7 +11,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 components.html(
     """
     <div class="intro" style="border: 2px solid black; border-radius: 25px; background-color: cornflowerblue;font-family:Trebuchet MS,Garamond ;font-size: 18px;text-align: center; ">
-        <h1 style="margin: 0.25;"><strong>Placement Predictor</strong></h1>
+        <h1 style="margin: 0.25;"><strong>MBA Placement Predictor</strong></h1>
         <h2 style="margin: 0.25;">A webapp that can predict student's placements</h2>
     </div>
     <br>
