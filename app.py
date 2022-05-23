@@ -61,7 +61,7 @@ with st.form('my_form'):
     
         #9 10
         mkt_fin=-1;
-        isSpec = st.selectbox('What is your MBA Specicialization ? ',('Marketing & Finance'))
+        isSpec = st.selectbox('What is your MBA Specicialization ? ',('Marketing & Finance','Marketing and HR',))
         if(isSpec=='Marketing & Finance'):mkt_fin=1
         st.write('');st.write('');st.write('');
         isExp = st.checkbox('Do you have prior working experience ?')
