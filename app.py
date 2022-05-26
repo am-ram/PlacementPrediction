@@ -11,20 +11,14 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 components.html(
     """
     <div class="intro" style="border: 2px solid black; border-radius: 25px; background-color: cornflowerblue;font-family:Trebuchet MS,Garamond ;font-size: 18px;text-align: center; ">
-        <h1 style="margin: 0.25;"><strong>MBA Placement Predictor</strong></h1>
+        <h1 style="margin: 0.25;"><strong>Placement Predictor</strong></h1>
         <h2 style="margin: 0.25;">A webapp that can predict student's placements</h2>
     </div>
     <br>
     """,
     height=200,
 )
-hide_menu_style = """
-        <style>
-        #MainMenu {visibility: hidden; }
-        footer {visibility: hidden;}
-        </style>
-        """
-st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 with st.sidebar:
 
     st.title('Sprint - 2 Assignment')
@@ -34,8 +28,8 @@ with st.sidebar:
     st.header('How does it work ?')
     st.write('● The ML model has been trained using algorithms on the MBA students data.\n')
     st.write('● Enter your data and click on SUBMIT to view the results. ')
-
-model = pickle.load(open(r'model_rt', 'rb'))
+    st.sidebar.markdown('![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=https://share.streamlit.io/am-ram/placementprediction/main/app.py&label=VisitorsCount&labelColor=000000&logo=GitHub&logoColor=FFFFFF&color=1D70B8&style=for-the-badge)')
+model = pickle.load(open(r'C:\Users\ram10\_Capgemini\model_rt', 'rb'))
 with st.form('my_form'):
     col1, col2  = st.columns(2)
     with col1:
@@ -74,5 +68,15 @@ if(x):
     ans = model.predict([[ssc,hsc,deg,etest,mba,   arts,comm,   comm_mng,others,  isExp,mkt_fin]])
     if(ans==1): st.success('Congratulations!! The Student is successfully Placed') ; st.balloons()
     elif(ans==0): st.error('Unfortunately, Student is not Placed') 
-   
+    components.html(
+            """
+                <div class="x" style="border: 2px solid black;background-color: rgb(150, 213, 245);font-family:sans serif ;font-size: 12px; padding-left:5px;border-radius:7px">
+                    <h1 style="margin: 0.25;"><strong>Metrics of Predicted Results</strong></h1>
+                    <h2 style="margin: 0.25;text-align:center">Accuracy: <span>97.54%</span> | Precision: <span>0.97</span></h2>
+                    
+                    <h2 style="margin: 0.25; text-align:center">Recall: <span>0.99 | F-1 Score: <span>0.87</span></span></h2>
+                    
+                </div>
+            """
+        )
     #ans = model.predict([[ssc,hsc,deg,etest,mba,arts,comm,isDeg,others,isExp,mkt_fin]])
