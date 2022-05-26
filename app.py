@@ -29,7 +29,7 @@ with st.sidebar:
     st.write('● The ML model has been trained using algorithms on the MBA students data.\n')
     st.write('● Enter your data and click on SUBMIT to view the results. ')
     st.sidebar.markdown('![Visitor count](https://shields-io-visitor-counter.herokuapp.com/badge?page=https://share.streamlit.io/am-ram/placementprediction/main/app.py&label=VisitorsCount&labelColor=000000&logo=GitHub&logoColor=FFFFFF&color=1D70B8&style=for-the-badge)')
-model = pickle.load(open(r'C:\Users\ram10\_Capgemini\model_rt', 'rb'))
+model = pickle.load(open(r'model_rt', 'rb'))
 with st.form('my_form'):
     col1, col2  = st.columns(2)
     with col1:
